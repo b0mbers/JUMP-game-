@@ -1,7 +1,9 @@
+
 <html>
 
   <head>
-
+<title>Jump Game</title>
+  <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/en/0/0a/Flappy_Bird_icon.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" id="meta"/>
 
     <style>
@@ -16,9 +18,9 @@
 
     </style>
 
-    <img src="http://freepngimages.com/wp-content/uploads/2015/05/tornado-jet-plane.png" id="jet" width="0" height = "0"/>
+    <img src="http://pluspng.com/img-png/png-jet-plane--1711.png" id="jet" width="0" height = "0"/>
 
-    <img src="http://media-wordpress.afar.com/~afarmag/wordpress/wp-content/uploads/2015/05/16746636328_96312a3069_b.jpg" width="0" height = "0" id="back"/>
+    <img src="https://www.beamng.com/attachments/screenshot_00155_wd-png.137352/" width="0" height = "0" id="back"/>
 
   </head>
 
@@ -30,7 +32,7 @@
 
       	
 
-        num = 27
+        num = 30
 
         myGameArea.clear()
 
@@ -96,7 +98,7 @@ window.addEventListener("keydown", arrow_keys_handler, false);
 
       function startGame() {
 
-        myGamePiece = new component(40, 30,jet, 15, 120,"image");
+        myGamePiece = new component(50, 40,jet, 20, 125,"image");
 
         myGamePiece.gravity = 0.05;
 
@@ -317,78 +319,3 @@ window.addEventListener("keydown", arrow_keys_handler, false);
           myObstacles[i].update();
 
         }
-
-        
-
-        myScore.text="SCORE: " + myGameArea.frameNo;
-
-        myScore.update();
-
-        myGamePiece.newPos();
-
-        myGamePiece.update();
-
-      }
-
-      function everyinterval(n) {
-
-        if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
-
-        return false;
-
-      }
-
-      function accelerate(n) {
-
-        myGamePiece.gravity = n;
-
-      }
-
-      document.onkeydown = function(e){
-
-      	e=e||window.event
-
-        if(e.keyCode == 32){
-
-        	space = true
-
-        }
-
-      }
-
-      document.onkeyup = function(e){
-
-      	e=e||window.event
-
-        if(e.keyCode == 32){
-
-        	space = false
-
-        }
-
-      }
-
-      setInterval(function(){
-
-      	if(space == true){
-
-        	accelerate(-0.2)
-
-        }else{
-
-        	accelerate(0.05)
-
-        }
-	      if( myGameArea.frameNo == 2000){
-		      alert("You got 2000, New level: fighter jet!")
-		      location.href="https://b0mbers.github.io/JUMP-game-/Level-9/"
-	     }
-
-      },1000/60)
-	     
-
-    </script>
-
-  </body> 
-
-</html> 

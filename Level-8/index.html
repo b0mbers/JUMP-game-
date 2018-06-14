@@ -319,3 +319,78 @@ window.addEventListener("keydown", arrow_keys_handler, false);
           myObstacles[i].update();
 
         }
+
+        
+
+        myScore.text="SCORE: " + myGameArea.frameNo;
+
+        myScore.update();
+
+        myGamePiece.newPos();
+
+        myGamePiece.update();
+
+      }
+
+      function everyinterval(n) {
+
+        if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
+
+        return false;
+
+      }
+
+      function accelerate(n) {
+
+        myGamePiece.gravity = n;
+
+      }
+
+      document.onkeydown = function(e){
+
+      	e=e||window.event
+
+        if(e.keyCode == 32){
+
+        	space = true
+
+        }
+
+      }
+
+      document.onkeyup = function(e){
+
+      	e=e||window.event
+
+        if(e.keyCode == 32){
+
+        	space = false
+
+        }
+
+      }
+
+      setInterval(function(){
+
+      	if(space == true){
+
+        	accelerate(-0.2)
+
+        }else{
+
+        	accelerate(0.05)
+
+        }
+	      if( myGameArea.frameNo == 2000){
+		      alert("You got 2500, New level: fighter jet!")
+		      location.href="https://b0mbers.github.io/JUMP-game-/Level-8/"
+	     }
+
+      },1000/60)
+	     
+
+    </script>
+
+  </body> 
+
+</html> 
